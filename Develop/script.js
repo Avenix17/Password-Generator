@@ -1,6 +1,6 @@
 // Assignment code here
 
-var promptAnswer;
+var passwordlength = 0;
 var symbolConfirm;
 var upperConfirm;
 var lowerConfirm;
@@ -10,19 +10,31 @@ symbol = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", 
 
 number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,];
 
-upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+upper = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
-lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 
 
-console.log(symbol)
+// console.log(symbol)
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
 
 
 function generatePassword() {
+  while(passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength)) {
+  passwordlength = Number(prompt("Choose password length: 8 - 128 characters"));
+  }
+  console.log(passwordlength);
+  symbolConfirm = confirm("Would you like Symbols?");
+  console.log(symbolConfirm);
+  upperConfirm = confirm("Would you like Uppercase letters?");
+  console.log(upperConfirm);
+  lowerConfirm = confirm("Would you like Lowercase letters?");
+  console.log(lowerConfirm);
+  numConfirm = confirm("Would you like Numbers?");
+  console.log(numConfirm);
 
 }
 
