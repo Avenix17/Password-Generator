@@ -5,6 +5,7 @@ var symbolConfirm;
 var upperConfirm;
 var lowerConfirm;
 var numConfirm;
+var charChoice;
 
 symbol = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\ ", "]", "^", "_", "`", "{", "|", "}", "~"];
 
@@ -27,15 +28,29 @@ function generatePassword() {
   passwordlength = Number(prompt("Choose password length: 8 - 128 characters"));
   }
   console.log(passwordlength);
-  symbolConfirm = confirm("Would you like Symbols?");
-  console.log(symbolConfirm);
+  // lowerConfirm = confirm("Would you like Lowercase letters?");
+  // console.log(lowerConfirm);
   upperConfirm = confirm("Would you like Uppercase letters?");
   console.log(upperConfirm);
-  lowerConfirm = confirm("Would you like Lowercase letters?");
-  console.log(lowerConfirm);
+  symbolConfirm = confirm("Would you like Symbols?");
+  console.log(symbolConfirm);
   numConfirm = confirm("Would you like Numbers?");
   console.log(numConfirm);
+  
+  // if (lowerConfirm) {charChoice = lower}
+  charChoice = lower
+  if (upperConfirm) {charChoice = charChoice.concat(upper);}
+  if (symbolConfirm) {charChoice = charChoice.concat(symbol);}
+  if (numConfirm) {charChoice = charChoice.concat(number);}
 
+  const passwordCharacters = [];
+
+  for(let i = 0; i < passwordlength; i++) {
+    const character = charChoice[Math.floor(Math.random() * charChoice.length)];
+      passwordCharacters.push(character);
+  }
+
+  return passwordCharacters.join("");
 }
 
 
