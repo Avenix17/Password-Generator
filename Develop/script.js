@@ -38,14 +38,6 @@ function generatePassword() {
   if (upperConfirm) {charChoice = charChoice.concat(upper);}
   if (symbolConfirm) {charChoice = charChoice.concat(symbol);}
   if (numConfirm) {charChoice = charChoice.concat(number);}
-  
-
-  // let passwordCharacters = [];
-
-  // for(let i = 0; i < passwordlength; i++) {
-  //   const character = charChoice[Math.floor(Math.random() * charChoice.length)];
-  //     passwordCharacters.push(character);
-  // }
 
   let passwordCharacters = [];
 
