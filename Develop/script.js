@@ -11,7 +11,6 @@ lower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "
 var generateBtn = document.querySelector("#generate");
 
 
-
 function generatePassword() {
   let passwordlength = 0;
   while (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength)) {
@@ -41,15 +40,38 @@ function generatePassword() {
   if (numConfirm) {charChoice = charChoice.concat(number);}
   
 
+  // let passwordCharacters = [];
+
+  // for(let i = 0; i < passwordlength; i++) {
+  //   const character = charChoice[Math.floor(Math.random() * charChoice.length)];
+  //     passwordCharacters.push(character);
+  // }
+
   let passwordCharacters = [];
 
   for(let i = 0; i < passwordlength; i++) {
-    const character = charChoice[Math.floor(Math.random() * charChoice.length)];
-      passwordCharacters.push(character);
+    let character = "";
+    if (lowerConfirm) {
+      lowerConfirm = false;
+      character = lower[Math.floor(Math.random() * lower.length)];
+    } else if (upperConfirm) { 
+      upperConfirm = false;
+      character = upper[Math.floor(Math.random() * upper.length)];
+    } else if (symbolConfirm) { 
+      symbolConfirm = false;
+      character = symbol[Math.floor(Math.random() * symbol.length)];
+    } else if (numConfirm) { 
+      numConfirm = false;
+      character = number[Math.floor(Math.random() * number.length)];
+    } else {
+      character = charChoice[Math.floor(Math.random() * charChoice.length)];
+    }
+
+    passwordCharacters.push(character);
   }
 
+  return passwordCharacters.join("");
 }
-
 
 
 function writePassword() {
@@ -62,7 +84,3 @@ function writePassword() {
 
 
 generateBtn.addEventListener("click", writePassword);
-
-
-//lots of commas for some reason?
-//generate password no longer does confirms second time round
