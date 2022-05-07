@@ -62,7 +62,17 @@ function generatePassword() {
     passwordCharacters.push(character);
   }
 
+  passwordCharacters.sort(randomShuffle);
+
   return passwordCharacters.join("");
+}
+
+function randomShuffle(a,b) {
+  if (Math.random() > 0.5) {
+    return 1;
+  } else {
+    return -1;
+  }
 }
 
 
